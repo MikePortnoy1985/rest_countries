@@ -29,16 +29,17 @@ module.exports = {
   },
   devtool: 'inline-source-map', // показывает в каком конкретно файле ошибка
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js', 'jsx'],
     alias: {
       js: path.resolve(__dirname, './src/js'),
       css: path.resolve(__dirname, './src/css'),
-      image: path.resolve(__dirname, './src/image'),
+      assets: path.resolve(__dirname, './src/assets'),
     },
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      favicon: './src/assets/favicon.png',
     }),
     new MiniCssExtractPlugin({
       runtime: false,

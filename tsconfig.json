@@ -23,9 +23,12 @@
     "strictNullChecks": true,
     "target": "ES2015",
     "useUnknownInCatchVariables": false,
-    "useDefineForClassFields": true
+    "useDefineForClassFields": true,
   },
   "include": [
-    "src",
+    "src"
   ],
+  "exclude": [
+    "node_modules"
+  ]
 }

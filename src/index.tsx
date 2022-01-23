@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import ReactDOM from 'react-dom';
-import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
+
+import MainView from './views/MainView';
 
 if (
   !new (class {
@@ -10,12 +12,34 @@ if (
 )
   throw new Error('Transpiler is not configured correctly');
 
-const AppContainer = styled.div`
-  background-color: aquamarine;
-  height: 100vh;
-  width: 100vw;
+const GLOBAL = createGlobalStyle`
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  overflow-X: hidden;
+}
 `;
 
-const App: FC = () => <AppContainer>Мишаня красавчик</AppContainer>;
+const App: FC = () => {
+  return (
+    <>
+      <GLOBAL />
+      <MainView />
+    </>
+  );
+};
 
 ReactDOM.render(<App />, document.getElementById('app'));
