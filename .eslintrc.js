@@ -30,22 +30,20 @@ module.exports = {
     'react/jsx-filename-extension': [
       1,
       {
-        extensions: ['.js', '.jsx', 'tsx'],
+        extensions: ['.js', '.jsx', '.tsx', '.ts'],
       },
     ],
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-      },
-    ],
+    'import/extensions': ['error', 'never'],
   },
   settings: {
     'import/resolver': {
+      alias: {
+        map: [
+          ['styles', './src/components/styles'],
+          ['components', './src/components'],
+        ],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },

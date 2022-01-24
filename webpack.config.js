@@ -22,6 +22,7 @@ if (process.env.SERVE) {
 
 module.exports = {
   mode,
+  // context: path.resolve(__dirname, 'src'),
   entry: './src/index.tsx',
   output: {
     filename: 'main.js',
@@ -31,9 +32,8 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', 'jsx'],
     alias: {
-      js: path.resolve(__dirname, './src/js'),
-      css: path.resolve(__dirname, './src/css'),
-      assets: path.resolve(__dirname, './src/assets'),
+      styles: path.resolve(__dirname, './src/components/styles'),
+      components: path.resolve(__dirname, './src/components'),
     },
   },
   plugins: [

@@ -1,44 +1,27 @@
 import { FC } from 'react';
 import ReactDOM from 'react-dom';
-import { createGlobalStyle } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 
+import { lightTheme, darkTheme } from 'styles/Theme';
+import GlobalStyles from 'styles/GlobalStyles';
 import MainView from './views/MainView';
 
 if (
   !new (class {
-    x;
+    x = '';
     // eslint-disable-next-line no-prototype-builtins
   })().hasOwnProperty('x')
 )
   throw new Error('Transpiler is not configured correctly');
 
-const GLOBAL = createGlobalStyle`
-*,
-*::after,
-*::before {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-family: 'Nunito Sans', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-body {
-  overflow-X: hidden;
-}
-`;
+const mode = true;
 
 const App: FC = () => {
   return (
-    <>
-      <GLOBAL />
+    <ThemeProvider theme={mode ? darkTheme : lightTheme}>
+      <GlobalStyles />
       <MainView />
-    </>
+    </ThemeProvider>
   );
 };
 
