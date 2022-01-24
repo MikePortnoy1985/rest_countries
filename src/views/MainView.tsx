@@ -1,16 +1,12 @@
 import { FC } from 'react';
-import styled from 'styled-components';
 
-const AppContainer = styled.div`
-  background-color: aquamarine;
-  height: 100vh;
-  width: 100vw;
-`;
+import Header from 'components/header/Header';
+import AppContainer from 'styles/AppContainer';
 
 const MainView: FC = () => {
   return (
     <AppContainer>
-      <h1>Main view</h1>
+      <Header />
     </AppContainer>
   );
 };
