@@ -32,7 +32,7 @@ export const Track = styled.div<PropsType>`
   padding: 0;
   border-radius: 2rem;
   background-color: ${(props) =>
-    props.mode === MODE.DARK ? '#202c36' : '#fafafa'};
+    props.mode === MODE.DARK ? '#fafafa' : '#202c36'};
   transition: all 0.2s ease;
 
   -webkit-tap-highlight-color: transparent;
