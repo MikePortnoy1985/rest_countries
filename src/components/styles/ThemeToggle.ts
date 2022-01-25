@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { MODE } from '../../constants';
 
 type PropsType = {
-  mode: keyof typeof MODE;
+  mode?: keyof typeof MODE;
 };
 
 export const ToggleContainer = styled.div`

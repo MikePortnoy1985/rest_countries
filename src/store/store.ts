@@ -1,11 +1,17 @@
 import { makeAutoObservable } from 'mobx';
 import { MODE } from '../constants';
 
-class Store {
-  mode: keyof typeof MODE = MODE.LIGHT;
+export type StoreType = {
+  mode: keyof typeof MODE;
+  setMode: () => void;
+};
 
-  constructor() {
+class Store {
+  mode: keyof typeof MODE;
+
+  constructor(mode: keyof typeof MODE) {
     makeAutoObservable(this);
+    this.mode = mode;
   }
 
   setMode() {
@@ -13,4 +19,4 @@ class Store {
   }
 }
 
-export default new Store();
+export default Store;
