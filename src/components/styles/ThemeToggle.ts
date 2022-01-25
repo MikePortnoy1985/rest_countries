@@ -7,7 +7,7 @@ type PropsType = {
 };
 
 export const ToggleContainer = styled.div`
-  width: 9rem;
+  width: 10rem;
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -43,12 +43,19 @@ export const Thumb = styled.div<PropsType>`
   position: absolute;
   top: 1px;
   left: ${(props) => (props.mode === MODE.DARK ? '27px' : '1px')};
-  width: 22px;
-  height: 22px;
+  width: 1.375rem;
+  height: 1.375rem;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.background};
 
   transition: all 0.25s ease;
 `;
 
-export const Label = styled.div<PropsType>``;
+export const Label = styled.label`
+  color: ${(props) => props.theme.textColor};
+`;
+
+export const IconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;

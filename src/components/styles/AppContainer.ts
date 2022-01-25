@@ -5,6 +5,7 @@ const AppContainer = styled.div`
   color: ${(p) => p.theme.textColor};
   height: 100vh;
   width: 100vw;
+  transition: all 0.3s ease;
 `;
 
 export default AppContainer;
