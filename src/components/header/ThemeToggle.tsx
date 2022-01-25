@@ -1,17 +1,25 @@
-import { FC, useState } from 'react';
-import { ToggleContainer, Toggle, Track, Thumb } from 'styles/ThemeToggle';
+import { FC } from 'react';
+import { observer } from 'mobx-react-lite';
+import {
+  IconWrapper,
+  Label,
+  Thumb,
+  Track,
+  Toggle,
+  ToggleContainer,
+} from 'styles/ThemeToggle';
+import { Moon } from 'components/icons/icons';
+import store from '../../store/store';
 
 import { MODE, LABEL } from '../../constants';
 
-const AppToggle: FC = () => {
-  const [mode, setMode] = useState<keyof typeof MODE>(MODE.LIGHT);
-
+const AppToggle: FC = observer(() => {
   const handleChecked = () => {
-    setMode((prevMode) => (prevMode === MODE.LIGHT ? MODE.DARK : MODE.LIGHT));
+    store.setMode();
   };
 
   const handleTouchChecked = () => {
-    setMode((prevMode) => (prevMode === MODE.LIGHT ? MODE.DARK : MODE.LIGHT));
+    store.setMode();
   };
 
   return (
@@ -21,14 +29,17 @@ const AppToggle: FC = () => {
         onClick={handleChecked}
         onTouchMove={handleTouchChecked}
       >
-        <Track mode={mode} />
-        <Thumb mode={mode} />
+        <Track mode={store.mode} />
+        <Thumb mode={store.mode} />
       </Toggle>
-      <label htmlFor="toggle">
-        {mode === MODE.LIGHT ? LABEL.LIGHT : LABEL.DARK}
-      </label>
+      <IconWrapper>
+        <Moon />
+      </IconWrapper>
+      <Label htmlFor="toggle">
+        {store.mode === MODE.LIGHT ? LABEL.LIGHT : LABEL.DARK}
+      </Label>
     </ToggleContainer>
   );
-};
+});
 
 export default AppToggle;

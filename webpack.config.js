@@ -22,8 +22,8 @@ if (process.env.SERVE) {
 
 module.exports = {
   mode,
-  // context: path.resolve(__dirname, 'src'),
-  entry: './src/index.tsx',
+  context: path.join(__dirname, './src'),
+  entry: './index.tsx',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
@@ -38,8 +38,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
-      favicon: './src/assets/favicon.png',
+      template: 'index.html',
+      favicon: 'assets/favicon.png',
     }),
     new MiniCssExtractPlugin({
       runtime: false,
@@ -50,8 +50,8 @@ module.exports = {
     // как файлы будут восприниматься webpack
     rules: [
       {
-        test: /\.(j|t)sx?$/, // проверка файлов которые попадают в модуль
-        exclude: /node_modules/,
+        test: /\.(js|jsx|ts|tsx)$/, // проверка файлов которые попадают в модуль
+        exclude: [/node_modules/],
         include: path.resolve(__dirname, 'src'),
         use: [
           {
@@ -94,5 +94,7 @@ module.exports = {
   devServer: {
     hot: true,
     port: 3000,
+    open: true,
+    compress: true,
   },
 };
