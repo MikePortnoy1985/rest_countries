@@ -7,10 +7,9 @@ type PropsType = {
 };
 
 export const ToggleContainer = styled.div`
-  width: 10rem;
+  width: 10.5rem;
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
 `;
 
 export const Toggle = styled.div`
@@ -31,8 +30,7 @@ export const Track = styled.div<PropsType>`
   height: 1.5rem;
   padding: 0;
   border-radius: 2rem;
-  background-color: ${(props) =>
-    props.mode === MODE.DARK ? '#fafafa' : '#202c36'};
+  background-color: ${(props) => props.theme.backgroundInverted};
   transition: all 0.2s ease;
 
   -webkit-tap-highlight-color: transparent;
@@ -58,4 +56,5 @@ export const Label = styled.label`
 export const IconWrapper = styled.div`
   display: flex;
   align-items: center;
+  padding-left: 0.5rem;
 `;

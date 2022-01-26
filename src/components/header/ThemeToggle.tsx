@@ -8,9 +8,9 @@ import {
   Toggle,
   ToggleContainer,
 } from 'styles/ThemeToggle';
-import { Moon } from 'components/icons/icons';
-import useStore from '../../hooks/useStore';
+import { Moon } from 'components/icons/Icons';
 
+import useStore from '../../hooks/useStore';
 import { MODE, LABEL } from '../../constants';
 
 const AppToggle: FC = observer(() => {

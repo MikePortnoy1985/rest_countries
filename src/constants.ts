@@ -9,3 +9,7 @@ export const LABEL = {
 };
 
 export const TITLE = 'Where in the world?';
+
+export const INPUT_PLACEHOLDER = 'Search for a country...';
+
+export const SELECT_PLACEHOLDER = 'Filter by region';

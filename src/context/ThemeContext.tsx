@@ -3,8 +3,8 @@ import { observer } from 'mobx-react-lite';
 import { ThemeProvider } from 'styled-components';
 
 import { lightTheme, darkTheme } from 'styles/Theme';
-import useStore from '../hooks/useStore';
 
+import useStore from '../hooks/useStore';
 import { MODE } from '../constants';
 
 const Theme: FC = observer(({ children }) => {

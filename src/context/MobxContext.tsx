@@ -1,6 +1,6 @@
 import { createContext, FC, useMemo } from 'react';
-import Store, { StoreType } from '../store/store';
 
+import Store, { StoreType } from '../store/store';
 import { MODE } from '../constants';
 
 const MobxContext = createContext<StoreType | null>(null);

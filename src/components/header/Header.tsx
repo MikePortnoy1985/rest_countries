@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Header from 'styles/Header';
-import Toggle from './ThemeToggle';
 
+import Toggle from './ThemeToggle';
 import { TITLE } from '../../constants';
 
 const AppHeader: FC = () => {

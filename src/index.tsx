@@ -2,6 +2,7 @@ import { FC } from 'react';
 import ReactDOM from 'react-dom';
 
 import GlobalStyles from 'styles/GlobalStyles';
+
 import MainView from './views/MainView';
 import ThemeProvider from './context/ThemeContext';
 import { MobxContextProvider } from './context/MobxContext';
