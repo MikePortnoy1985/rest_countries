@@ -8,18 +8,19 @@ import {
   Toggle,
   ToggleContainer,
 } from 'styles/ThemeToggle';
-import { Moon } from 'components/icons/icons';
-import store from '../../store/store';
+import { Moon } from 'components/icons/Icons';
 
+import useStore from '../../hooks/useStore';
 import { MODE, LABEL } from '../../constants';
 
 const AppToggle: FC = observer(() => {
+  const store = useStore();
   const handleChecked = () => {
-    store.setMode();
+    store?.setMode();
   };
 
   const handleTouchChecked = () => {
-    store.setMode();
+    store?.setMode();
   };
 
   return (
@@ -29,14 +30,14 @@ const AppToggle: FC = observer(() => {
         onClick={handleChecked}
         onTouchMove={handleTouchChecked}
       >
-        <Track mode={store.mode} />
-        <Thumb mode={store.mode} />
+        <Track mode={store?.mode} />
+        <Thumb mode={store?.mode} />
       </Toggle>
       <IconWrapper>
         <Moon />
       </IconWrapper>
       <Label htmlFor="toggle">
-        {store.mode === MODE.LIGHT ? LABEL.LIGHT : LABEL.DARK}
+        {store?.mode === MODE.LIGHT ? LABEL.LIGHT : LABEL.DARK}
       </Label>
     </ToggleContainer>
   );

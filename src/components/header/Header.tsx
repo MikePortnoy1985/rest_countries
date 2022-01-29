@@ -1,13 +1,13 @@
 import { FC } from 'react';
-import Header from 'styles/Header';
-import Toggle from './ThemeToggle';
+import Header, { Title } from 'styles/Header';
 
-import { TITLE } from '../../constants';
+import Toggle from './ThemeToggle';
+import { TITLE_TEXT } from '../../constants';
 
 const AppHeader: FC = () => {
   return (
     <Header>
-      <h1>{TITLE}</h1>
+      <Title>{TITLE_TEXT}</Title>
       <Toggle />
     </Header>
   );
