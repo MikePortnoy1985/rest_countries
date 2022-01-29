@@ -13,6 +13,7 @@ const BackButton = styled.button`
 
 export const ButtonTitle = styled.span`
   margin-left: 0.625rem;
+  color: ${(props) => props.theme.textColor};
 `;
 
 export default BackButton;

@@ -11,6 +11,10 @@ const CountryContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 7.5rem;
+
+  @media (max-width: 1325px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const CountryFlag = styled.div<PropsType>`

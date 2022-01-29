@@ -20,7 +20,7 @@ const AppBadge: FC = observer(() => {
   return (
     <BadgeRow>
       <DescriptionField bold>{BORDER_COUNTRIES}:&nbsp;</DescriptionField>
-      {store?.selectedCountry?.borders.map((border) => (
+      {store?.selectedCountry?.borders?.map((border) => (
         <Badge
           key={border}
           type="button"

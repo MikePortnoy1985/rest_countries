@@ -9,6 +9,10 @@ const Header = styled.header`
   justify-content: space-between;
   padding: 0 5rem;
   background-color: ${(props) => props.theme.lightBackground};
+
+  @media (max-width: 560px) {
+    padding: 0 1rem;
+  }
 `;
 
 export const Title = styled.h1`
