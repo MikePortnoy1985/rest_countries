@@ -10,12 +10,16 @@ import Card, {
 import { CountryType } from '../../store/store';
 import { COUNTRY_INFO } from '../../constants';
 
-const AppCard: FC<CountryType> = (props) => {
+type PropsType = {
+  handleNavigation: (name: string) => void;
+} & CountryType;
+
+const AppCard: FC<PropsType> = (props) => {
   const { POPULATION, REGION, CAPITAL } = COUNTRY_INFO;
-  const { flags, population, region, capital } = props;
+  const { flags, population, region, capital, name, handleNavigation } = props;
 
   return (
-    <Card>
+    <Card onClick={() => handleNavigation(name?.official)}>
       <Image img={flags?.svg} />
       <CountryInfoContainer>
         {

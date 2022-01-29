@@ -66,3 +66,14 @@ export const Expand: FC = () => (
     />
   </svg>
 );
+
+export const Arrow: FC = () => (
+  <svg width="20" height="20" fill="none">
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="m6.464 4.107 1.179 1.179-3.89 3.889h14.85v1.65H3.753l3.89 3.889-1.179 1.179L.572 10l5.892-5.893Z"
+      fill="#848484"
+    />
+  </svg>
+);
