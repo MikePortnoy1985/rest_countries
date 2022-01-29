@@ -5,9 +5,9 @@ export const InputContainer = styled.div`
   width: 100%;
   max-width: 30rem;
   height: 3.5rem;
+  border-radius: 5px;
   background-color: ${(props) => props.theme.lightBackground};
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
-  border-radius: 5px;
 `;
 
 export const Input = styled.input`
@@ -19,6 +19,14 @@ export const Input = styled.input`
   color: ${(props) => props.theme.inputTextColor};
   font-size: 0.875rem;
   line-height: 1.25rem;
+
+  &::placeholder {
+    color: ${(props) => props.theme.inputTextColor};
+  }
+
+  &:-moz-placeholder {
+    color: ${(props) => props.theme.inputTextColor};
+  }
 
   &:active,
   &:hover,

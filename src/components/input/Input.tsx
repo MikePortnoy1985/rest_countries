@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ChangeEvent } from 'react';
 import { observer } from 'mobx-react-lite';
 
 import { InputContainer, SearchButton, Input } from 'styles/Input';
@@ -9,6 +9,13 @@ import { INPUT_PLACEHOLDER } from '../../constants';
 
 const AppInput: FC = observer(() => {
   const store = useStore();
+
+  const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    store?.setSearchQuery(event.target.value);
+    if (event.target.value.length > 3) {
+      store?.findCountry(event.target.value);
+    }
+  };
   return (
     <InputContainer>
       <SearchButton>
@@ -18,7 +25,7 @@ const AppInput: FC = observer(() => {
         type="text"
         placeholder={INPUT_PLACEHOLDER}
         value={store?.searchQuery}
-        onChange={store?.setSearchQuery}
+        onChange={handleSearch}
       />
     </InputContainer>
   );

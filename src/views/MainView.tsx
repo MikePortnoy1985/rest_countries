@@ -2,11 +2,11 @@ import { FC } from 'react';
 
 import Header from 'components/header/Header';
 import Input from 'components/input/Input';
+import Filter from 'components/filter/Filter';
+import Cards from 'components/cards/Cards';
 import AppContainer from 'styles/AppContainer';
 import MainSection from 'styles/MainSection';
 import FlexContainer from 'styles/FlexContainer';
-import GridContainer from 'styles/GridContainer';
-import Card from 'styles/Card';
 
 const MainView: FC = () => {
   return (
@@ -15,12 +15,9 @@ const MainView: FC = () => {
       <MainSection>
         <FlexContainer>
           <Input />
+          <Filter />
         </FlexContainer>
-        <GridContainer>
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-            <Card key={item} />
-          ))}
-        </GridContainer>
+        <Cards />
       </MainSection>
     </AppContainer>
   );

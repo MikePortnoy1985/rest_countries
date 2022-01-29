@@ -51,6 +51,7 @@ export const Thumb = styled.div<PropsType>`
 
 export const Label = styled.label`
   color: ${(props) => props.theme.textColor};
+  user-select: none;
 `;
 
 export const IconWrapper = styled.div`

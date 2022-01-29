@@ -55,3 +55,14 @@ export const Search: FC = () => (
     />
   </svg>
 );
+
+export const Expand: FC = () => (
+  <svg width="10" height="6" fill="none">
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M8.45.45 5 3.9 1.55.45.5 1.5 5 6l4.5-4.5L8.45.45Z"
+      fill="#848484"
+    />
+  </svg>
+);
