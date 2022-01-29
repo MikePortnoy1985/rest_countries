@@ -1,4 +1,3 @@
-import Country from 'components/country/Country';
 import { makeAutoObservable } from 'mobx';
 
 import { MODE, BASE_URL, WORLD, ProcessEnum } from '../constants';
