@@ -14,6 +14,11 @@ html {
   font-weight: 600;
   font-size: 16px;
   line-height: 1.5;
+
+  @media (max-width: 560px) {
+    font-size: 14px;
+    line-height: 1.2;
+  }
 }
 
 body {
