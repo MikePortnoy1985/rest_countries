@@ -1,23 +1,23 @@
 import { FC } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 import Header from 'components/header/Header';
-import Input from 'components/input/Input';
-import Filter from 'components/filter/Filter';
-import Cards from 'components/cards/Cards';
 import AppContainer from 'styles/AppContainer';
 import MainSection from 'styles/MainSection';
-import FlexContainer from 'styles/FlexContainer';
+
+import CountriesView from './CountriesView';
+import CountryView from './CountryView';
 
 const MainView: FC = () => {
   return (
     <AppContainer>
       <Header />
       <MainSection>
-        <FlexContainer>
-          <Input />
-          <Filter />
-        </FlexContainer>
-        <Cards />
+        <Routes>
+          <Route path="/" element={<CountriesView />} />
+          <Route path="/:id" element={<CountryView />} />
+          <Route path="*" element={<CountriesView />} />
+        </Routes>
       </MainSection>
     </AppContainer>
   );

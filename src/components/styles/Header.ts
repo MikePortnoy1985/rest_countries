@@ -13,6 +13,8 @@ const Header = styled.header`
 
 export const Title = styled.h1`
   user-select: none;
+  font-size: 1.5rem;
+  line-height: 2rem;
 `;
 
 export default Header;

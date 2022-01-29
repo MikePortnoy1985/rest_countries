@@ -1,6 +1,7 @@
+import Country from 'components/country/Country';
 import { makeAutoObservable } from 'mobx';
 
-import { MODE, BASE_URL, ProcessEnum } from '../constants';
+import { MODE, BASE_URL, WORLD, ProcessEnum } from '../constants';
 
 export interface Aym {
   official: string;
@@ -270,10 +271,22 @@ export type CountryType = {
   postalCode: PostalCode;
 };
 
+type CountryDescriptionType = {
+  'Common Name': string;
+  Population: number;
+  Region: string;
+  'Sub Region': string;
+  Capital: string;
+  'Top Level Domain': string;
+  Currencies: string;
+  Languages: string;
+};
+
 export type StoreType = {
   mode: keyof typeof MODE;
   countries: Array<CountryType>;
   countriesToRender: Array<CountryType>;
+  selectedCountry: CountryType;
   process: ProcessEnum;
   searchQuery: string;
   error: string;
@@ -284,6 +297,9 @@ export type StoreType = {
   setSearchQuery: (query: string) => void;
   setCountries: (newResult: Array<CountryType>) => void;
   setCountriesForRender: (newResult: Array<CountryType>) => void;
+  setSelectedCountry: (countryName: string) => void;
+  getCountryDescription: () => CountryDescriptionType;
+  getCountryByCioc: (cioc: string) => string;
 };
 
 class Store {
@@ -296,6 +312,8 @@ class Store {
   public countriesToRender: Array<CountryType> = [];
 
   public process = ProcessEnum.INITIAL;
+
+  public selectedCountry = {} as CountryType;
 
   public error = '';
 
@@ -346,7 +364,7 @@ class Store {
   };
 
   filterRegions = async (filter: string) => {
-    if (filter === 'World') {
+    if (filter === WORLD) {
       this.setCountriesForRender(this.countries);
       return;
     }
@@ -371,6 +389,38 @@ class Store {
       );
     });
     this.setCountriesForRender(newCountries);
+  };
+
+  setSelectedCountry = (countryName: string) => {
+    const country = this.countries.find(
+      (item) => item.name.official === countryName,
+    );
+    if (country) {
+      this.selectedCountry = country;
+    }
+  };
+
+  getCountryDescription = (): CountryDescriptionType => {
+    return {
+      'Common Name': this.selectedCountry.name.common,
+      Population: this.selectedCountry.population,
+      Region: this.selectedCountry.region,
+      'Sub Region': this.selectedCountry.subregion,
+      Capital: this.selectedCountry.capital.join(', '),
+      'Top Level Domain': this.selectedCountry.tld.join(', '),
+      Currencies: Object.keys(this.selectedCountry.currencies).join(', '),
+      Languages: Object.values(this.selectedCountry.languages).join(', '),
+    };
+  };
+
+  getCountryByCioc = (cioc: string) => {
+    const countryForRedirect = this.countries.find(
+      (ctry) => ctry.cioc === cioc,
+    );
+    if (countryForRedirect) {
+      this.setSelectedCountry(countryForRedirect.name.official);
+    }
+    return countryForRedirect?.name.official ?? '';
   };
 }
 

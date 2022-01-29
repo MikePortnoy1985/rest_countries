@@ -28,6 +28,8 @@ export const REGIONS: Array<RegionsType> = [
   { id: '006', region: 'World' },
 ];
 
+export const WORLD = REGIONS[REGIONS.length - 1].region;
+
 export const COUNTRY_INFO = {
   POPULATION: 'Population',
   REGION: 'Region',
@@ -42,3 +44,7 @@ export enum ProcessEnum {
   SUCCEEDED = 'succeeded',
   FAILED = 'failed',
 }
+
+export const BACK = 'Back';
+
+export const BORDER_COUNTRIES = 'Border Countries';
