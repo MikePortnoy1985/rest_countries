@@ -1,6 +1,7 @@
 {
   "name": "rest_countries",
   "version": "1.0.0",
+  "homepage": "https://mikeportnoy1985.github.io/rest_countries/"
   "description": "",
   "main": "index.js",
   "scripts": {
