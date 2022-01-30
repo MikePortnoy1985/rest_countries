@@ -5,7 +5,7 @@ const MainSection = styled.main`
   height: 100%;
   padding: 0 5rem;
 
-  @media (max-width: 560px) {
+  @media (max-width: 720px) {
     padding: 0 1rem;
   }
 `;

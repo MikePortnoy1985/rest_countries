@@ -31,7 +31,7 @@ export const Track = styled.div<PropsType>`
   padding: 0;
   border-radius: 2rem;
   background-color: ${(props) => props.theme.backgroundInverted};
-  transition: all 0.2s ease;
+  transition: all 0.4s ease;
 
   -webkit-tap-highlight-color: transparent;
 `;
@@ -45,8 +45,7 @@ export const Thumb = styled.div<PropsType>`
   height: 1.375rem;
   border-radius: 50%;
   background-color: ${(props) => props.theme.background};
-
-  transition: all 0.25s ease;
+  transition: all 0.4s ease;
 `;
 
 export const Label = styled.label`

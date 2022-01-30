@@ -6,7 +6,7 @@ const AppContainer = styled.div`
   min-height: 100vh;
   width: 100vw;
   padding-bottom: 3.125rem;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 `;
 
 export default AppContainer;

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import Input from 'components/input/Input';
-import Filter from 'components/filter/Filter';
+import Select from 'components/select/Select';
 import Cards from 'components/cards/Cards';
 import FlexContainer from 'styles/FlexContainer';
 
@@ -10,7 +10,7 @@ const CountriesView: FC = () => {
     <>
       <FlexContainer>
         <Input />
-        <Filter />
+        <Select />
       </FlexContainer>
       <Cards />
     </>

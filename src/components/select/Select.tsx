@@ -8,7 +8,7 @@ import useClickOutside from '../../hooks/useClickOutside';
 import { SELECT_PLACEHOLDER, REGIONS } from '../../constants';
 import { Expand } from '../icons/Icons';
 
-const Filter: FC = observer(() => {
+const AppSelect: FC = observer(() => {
   const store = useStore();
   const [expanded, setExpanded] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -49,4 +49,4 @@ const Filter: FC = observer(() => {
   );
 });
 
-export default Filter;
+export default AppSelect;

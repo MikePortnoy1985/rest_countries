@@ -12,6 +12,7 @@ const Card = styled.div`
   border-radius: 5px;
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
   overflow: hidden;
+  transition: all 0.4s ease;
 `;
 
 export const Image = styled.div<PropsType>`

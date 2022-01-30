@@ -7,7 +7,9 @@ const Badge = styled.button`
   box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.293139);
   border-radius: 2px;
   margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
   color: ${(props) => props.theme.textColor};
+  transition: all 0.4s ease;
 `;
 
 export const BadgeRow = styled.div`

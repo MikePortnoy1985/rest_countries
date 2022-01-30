@@ -13,14 +13,17 @@ const CountryContainer = styled.div`
   grid-gap: 7.5rem;
 
   @media (max-width: 1325px) {
+    height: 100%;
     grid-template-columns: 1fr;
+    grid-gap: 0;
   }
 `;
 
 export const CountryFlag = styled.div<PropsType>`
-  width: 35rem;
-  height: 100%;
-  background: left / cover no-repeat url(${(props) => props.img});
+  max-width: 35rem;
+  width: 100%;
+  height: 25rem;
+  background: center / cover no-repeat url(${(props) => props.img});
   border-radius: 10px;
   box-shadow: 0px 0px 14px 4px rgba(0, 0, 0, 0.0294384);
   justify-self: center;
@@ -32,6 +35,15 @@ export const CountryInfo = styled.div`
   padding: 2.5rem 0;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 1325px) {
+    padding: 0;
+    padding-top: 1rem;
+  }
+
+  @media (max-width: 440px) {
+    height: auto;
+  } ;
 `;
 
 export const CountryTitle = styled.h2`
@@ -45,6 +57,15 @@ export const CountryDescription = styled.div`
   flex-wrap: wrap;
   height: 10rem;
   margin-top: 1rem;
+
+  @media (max-width: 1325px) {
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 440px) {
+    height: auto;
+    flex-wrap: nowrap;
+  } ;
 `;
 
 export const DescriptionFieldContainer = styled.div`
