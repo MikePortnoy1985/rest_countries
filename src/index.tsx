@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import GlobalStyles from 'styles/GlobalStyles';
 
@@ -13,9 +13,9 @@ const App: FC = () => {
     <MobxContextProvider>
       <ThemeProvider>
         <GlobalStyles />
-        <BrowserRouter>
+        <HashRouter>
           <MainView />
-        </BrowserRouter>
+        </HashRouter>
       </ThemeProvider>
     </MobxContextProvider>
   );
