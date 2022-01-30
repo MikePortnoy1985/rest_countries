@@ -9,6 +9,7 @@ const Badge = styled.button`
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
   color: ${(props) => props.theme.textColor};
+  transition: all 0.4s ease;
 `;
 
 export const BadgeRow = styled.div`

@@ -23,7 +23,7 @@ export const CountryFlag = styled.div<PropsType>`
   max-width: 35rem;
   width: 100%;
   height: 25rem;
-  background: left / cover no-repeat url(${(props) => props.img});
+  background: center / cover no-repeat url(${(props) => props.img});
   border-radius: 10px;
   box-shadow: 0px 0px 14px 4px rgba(0, 0, 0, 0.0294384);
   justify-self: center;

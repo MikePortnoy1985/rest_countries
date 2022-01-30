@@ -18,6 +18,7 @@ export const Select = styled.div`
   user-select: none;
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
   border-radius: 5px;
+  transition: all 0.4s ease;
 
   @media (max-width: 839px) {
     margin-top 2.5rem;
@@ -44,6 +45,7 @@ export const Menu = styled.div<PropsType>`
   background-color: ${(props) => props.theme.lightBackground};
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
   border-radius: 5px;
+  transition: all 0.4s ease;
 `;
 
 export const MenuItem = styled.div`
@@ -53,7 +55,7 @@ export const MenuItem = styled.div`
     width: 50%;
     border-bottom: 1px solid ${(props) => props.theme.inputTextColor};
     width: 0;
-    transition: all 0.6s ease;
+    transition: all 0.4s ease;
   }
 
   &:hover::after {
