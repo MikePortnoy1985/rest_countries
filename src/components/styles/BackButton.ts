@@ -9,6 +9,10 @@ const BackButton = styled.button`
   align-items: center;
   box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.293139);
   border-radius: 2px;
+
+  @media (max-width: 1325px) {
+    margin: 2rem 0;
+  }
 `;
 
 export const ButtonTitle = styled.span`

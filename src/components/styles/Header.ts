@@ -10,7 +10,7 @@ const Header = styled.header`
   padding: 0 5rem;
   background-color: ${(props) => props.theme.lightBackground};
 
-  @media (max-width: 560px) {
+  @media (max-width: 720px) {
     padding: 0 1rem;
   }
 `;
