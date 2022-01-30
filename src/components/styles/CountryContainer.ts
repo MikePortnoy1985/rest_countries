@@ -27,6 +27,10 @@ export const CountryFlag = styled.div<PropsType>`
   border-radius: 10px;
   box-shadow: 0px 0px 14px 4px rgba(0, 0, 0, 0.0294384);
   justify-self: center;
+
+  @media (max-width: 440px) {
+    background-size: contain;
+  }
 `;
 
 export const CountryInfo = styled.div`

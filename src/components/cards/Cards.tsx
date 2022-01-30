@@ -2,6 +2,7 @@ import { FC, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useNavigate } from 'react-router-dom';
 
+import { Loader } from 'components/icons/Icons';
 import GridContainer from 'styles/GridContainer';
 import Card from './Card';
 
@@ -35,6 +36,14 @@ const Cards: FC = observer(() => {
             />
           );
         })}
+      </GridContainer>
+    );
+  }
+
+  if (store?.process === ProcessEnum.REQUESTED) {
+    return (
+      <GridContainer>
+        <Loader />
       </GridContainer>
     );
   }

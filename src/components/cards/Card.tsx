@@ -20,7 +20,7 @@ const AppCard: FC<PropsType> = (props) => {
 
   return (
     <Card onClick={() => handleNavigation(name?.official)}>
-      <Image img={flags?.svg} />
+      <Image img={flags?.png} />
       <CountryInfoContainer>
         {
           // eslint-disable-next-line react/destructuring-assignment
