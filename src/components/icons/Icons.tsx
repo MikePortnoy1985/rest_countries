@@ -67,8 +67,16 @@ export const Expand: FC = () => (
   </svg>
 );
 
-export const Arrow: FC = () => (
-  <svg width="20" height="20" fill="none">
+// eslint-disable-next-line react/require-default-props
+export const Arrow: FC<{ next?: boolean }> = ({ next = false }) => (
+  <svg
+    style={{
+      transform: next ? 'rotate(180deg)' : '',
+    }}
+    width="20"
+    height="20"
+    fill="none"
+  >
     <path
       fillRule="evenodd"
       clipRule="evenodd"

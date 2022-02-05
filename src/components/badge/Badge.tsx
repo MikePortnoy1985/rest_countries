@@ -6,14 +6,14 @@ import Badge, { BadgeRow } from 'styles/Badge';
 import { DescriptionField } from 'styles/CountryContainer';
 
 import useStore from '../../hooks/useStore';
-import { BORDER_COUNTRIES } from '../../constants';
+import { BORDER_COUNTRIES, CCA3_MAP } from '../../constants';
 
 const AppBadge: FC = observer(() => {
   const store = useStore();
   const navigate = useNavigate();
 
   const handleNavigation = (border: string) => {
-    const name = store?.getCountryByCioc(border);
+    const name = store?.getCountryByCCA3(border);
     if (name) navigate(`/${name}`, { state: {}, replace: true });
   };
 
@@ -26,7 +26,7 @@ const AppBadge: FC = observer(() => {
           type="button"
           onClick={() => handleNavigation(border)}
         >
-          {border}
+          {CCA3_MAP[border as keyof typeof CCA3_MAP]}
         </Badge>
       ))}
     </BadgeRow>

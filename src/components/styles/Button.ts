@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
-const BackButton = styled.button`
-  margin: 5rem 0;
+type PropsType = {
+  withMargin?: boolean;
+};
+
+const BackButton = styled.button<PropsType>`
+  margin: ${(props) => (props.withMargin ? '5rem 0' : '0 auto')};
   padding: 0.625rem 2rem;
   border: 0;
   background-color: ${(props) => props.theme.lightBackground};
@@ -13,10 +17,14 @@ const BackButton = styled.button`
   @media (max-width: 1325px) {
     margin: 2rem 0;
   }
+
+  &:active {
+    transform: translateY(-2px);
+  }
 `;
 
 export const ButtonTitle = styled.span`
-  margin-left: 0.625rem;
+  margin: 0 0.625rem;
   color: ${(props) => props.theme.textColor};
 `;
 

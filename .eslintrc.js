@@ -22,6 +22,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'react/react-in-jsx-scope': 'off',
+    'react/require-default-props': 'off',
     'func-names': 'off',
     'react/function-component-definition': [
       2,
