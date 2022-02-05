@@ -7,7 +7,6 @@
     "start": "cross-env SERVE=true webpack serve",
     "build": "webpack --mode=production",
     "clean": "rm -r dist",
-    "lint:css": "stylelint './src/**/*.tsx'"
   },
   "keywords": [],
   "author": "",
@@ -43,10 +42,6 @@
     "mini-css-extract-plugin": "^2.5.2",
     "prettier": "^2.5.1",
     "react-refresh": "^0.11.0",
-    "stylelint": "^14.2.0",
-    "stylelint-config-recommended": "^6.0.0",
-    "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-processor-styled-components": "^1.0.0",
     "ts-loader": "^9.2.6",
     "typescript": "^4.5.5",
     "webpack": "^5.67.0",
