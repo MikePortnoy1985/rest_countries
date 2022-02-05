@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cross-env SERVE=true webpack serve",
     "build": "webpack --mode=production",
-    "clean": "rm -r dist",
+    "clean": "rm -r dist"
   },
   "keywords": [],
   "author": "",
