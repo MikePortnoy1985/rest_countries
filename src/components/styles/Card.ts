@@ -7,7 +7,7 @@ type PropsType = {
 const Card = styled.div`
   background-color: ${(props) => props.theme.lightBackground};
   width: 100%;
-  max-width: 16.5rem;
+  max-width: calc(${(props) => props.theme.cardWidth / 16}rem);
   height: 21rem;
   border-radius: 5px;
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);

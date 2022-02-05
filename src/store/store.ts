@@ -1,6 +1,18 @@
 import { makeAutoObservable } from 'mobx';
 
-import { MODE, BASE_URL, WORLD, ProcessEnum } from '../constants';
+import {
+  MODE,
+  BASE_URL,
+  WORLD,
+  ProcessEnum,
+  CARD_WIDTH,
+  CARD_MARGIN,
+  MAX_TABLET_WIDTH,
+  MAX_CONTAINER_PADDING,
+  MIN_CONTAINER_PADDING,
+  MIN_CARDS_TO_SHOW,
+  CARD_ROWS,
+} from '../constants';
 
 export interface Aym {
   official: string;
@@ -291,6 +303,9 @@ export type StoreType = {
   error: string;
   setMode: () => void;
   getCountries: () => void;
+  cardsToShow: number;
+  startCard: number;
+  endCard: number;
   filterRegions: (filter: string) => void;
   findCountry: (query: string) => void;
   setSearchQuery: (query: string) => void;
@@ -298,7 +313,10 @@ export type StoreType = {
   setCountriesForRender: (newResult: Array<CountryType>) => void;
   setSelectedCountry: (countryName: string) => void;
   getCountryDescription: () => CountryDescriptionType;
-  getCountryByCioc: (cioc: string) => string;
+  getCountryByCCA3: (cca3: string) => string;
+  setCardsToShow: (screenWidth: number) => void;
+  setPrevPage: () => void;
+  setNextPage: () => void;
 };
 
 class Store {
@@ -315,6 +333,12 @@ class Store {
   public selectedCountry = {} as CountryType;
 
   public error = '';
+
+  public cardsToShow = MIN_CARDS_TO_SHOW;
+
+  public startCard = 0;
+
+  public endCard = 0;
 
   constructor(mode: keyof typeof MODE) {
     makeAutoObservable(this);
@@ -341,7 +365,9 @@ class Store {
   };
 
   setCountriesForRender = (newCountries: Array<CountryType>) => {
-    this.countriesToRender = newCountries;
+    this.endCard =
+      this.endCard === 0 ? (this.endCard = this.cardsToShow) : this.endCard;
+    this.countriesToRender = newCountries.slice(this.startCard, this.endCard);
   };
 
   getCountries = () => {
@@ -412,14 +438,50 @@ class Store {
     };
   };
 
-  getCountryByCioc = (cioc: string) => {
+  getCountryByCCA3 = (cca3: string) => {
     const countryForRedirect = this.countries.find(
-      (ctry) => ctry.cioc === cioc,
+      (ctry) => ctry.cca3 === cca3,
     );
     if (countryForRedirect) {
       this.setSelectedCountry(countryForRedirect.name.official);
     }
     return countryForRedirect?.name.official ?? '';
+  };
+
+  setCardsToShow = (screenWidth: number) => {
+    const padding =
+      screenWidth > MAX_TABLET_WIDTH
+        ? MAX_CONTAINER_PADDING
+        : MIN_CONTAINER_PADDING;
+
+    const cardsInRowToShow = Math.floor(
+      (screenWidth - padding) / (CARD_WIDTH + CARD_MARGIN),
+    );
+    if (cardsInRowToShow > 1) {
+      this.cardsToShow = cardsInRowToShow * CARD_ROWS;
+    } else {
+      this.cardsToShow = MIN_CARDS_TO_SHOW;
+    }
+    this.setCountriesForRender(this.countries);
+  };
+
+  setNextPage = () => {
+    if (
+      this.countries.length + this.cardsToShow >
+      this.endCard + this.cardsToShow
+    ) {
+      this.startCard += this.cardsToShow;
+      this.endCard += this.cardsToShow;
+      this.setCountriesForRender(this.countries);
+    }
+  };
+
+  setPrevPage = () => {
+    if (this.startCard - this.cardsToShow >= 0) {
+      this.startCard -= this.cardsToShow;
+      this.endCard -= this.cardsToShow;
+      this.setCountriesForRender(this.countries);
+    }
   };
 }
 

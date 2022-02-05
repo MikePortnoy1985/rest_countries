@@ -1,12 +1,20 @@
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import BackButton from 'components/backButton/BackButton';
+import BackButton from 'components/button/Button';
 import Country from 'components/country/Country';
+import { BACK } from '../constants';
 
 const CountryView: FC = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate('/');
+  };
+
   return (
     <>
-      <BackButton />
+      <BackButton buttonTitle={BACK} onClick={handleNavigate} withMargin />
       <Country />
     </>
   );
